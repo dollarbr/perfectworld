@@ -6,7 +6,7 @@ services:
       - perfectworld-uniquenamed
     expose:
       - "29200/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       AUTHD_SERVER_ADDRESS: 0.0.0.0
       AUTHD_SERVER_PORT: 29200
@@ -23,7 +23,7 @@ services:
   perfectworld-db:
     container_name: perfectworld-db
     image: mysql:5.7
-    restart: always
+    restart: unless-stopped
     expose:
       - "3306/tcp"
     volumes:
@@ -45,7 +45,7 @@ services:
     expose:
       - "29702/tcp"
       - "29712/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
@@ -62,7 +62,7 @@ services:
     container_name: perfectworld-gamed
     depends_on:
         - perfectworld-glinkd
-    restart: always
+    restart: unless-stopped
     environment:
       GDELIVERYD_SERVER_ADDRESS: 172.30.1.8
       GDELIVERYD_PROVIDER_SERVER_PORT: 29300
@@ -92,7 +92,7 @@ services:
         - perfectworld-authd
     expose:
       - "29400/tcp"
-    restart: always
+    restart: unless-stopped
     volumes:
       - perfectworld-dbhomewdb-volume:/home/dbhomewdb
       - perfectworld-backupwdb-volume:/home/backupwdb
@@ -114,7 +114,7 @@ services:
     expose:
       - "29300/tcp"
       - "29100/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
@@ -144,7 +144,7 @@ services:
     expose:
       - "29500/tcp"
       - "29600/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
@@ -182,7 +182,7 @@ services:
       - "29305/tcp"
       - "29306/tcp"
       - "29307/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
@@ -218,7 +218,7 @@ services:
     expose:
       - "11100/udp"
       - "11101/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
@@ -234,7 +234,7 @@ services:
         - perfectworld-logservice
     expose:
       - "29401/tcp"
-    restart: always
+    restart: unless-stopped
     environment:
       LOGSERVICE_SERVER_UDP_PORT: 11100
       LOGSERVICE_SERVER_TCP_PORT: 11101
