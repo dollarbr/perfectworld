@@ -21,7 +21,7 @@ You can run individual subsystem, since it't using different images
 
 - clone this repository
 ```
-git clone https://github.com/oss-perfectworld/perfectworld.git
+git clone https://github.com/dollarbr/perfectworld.git
 ```
 - edit docker-compose.yaml, change `{PUBLIC_IP}` with your server public IP
 ```
