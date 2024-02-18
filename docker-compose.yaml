@@ -175,7 +175,7 @@ services:
     depends_on:
         - perfectworld-gdeliveryd
     ports:
-    - "{PUBLIC_IP}:29000:29000"
+    - "0.0.0.0:29000:29000"
     expose:
       - "29000/tcp"
       - "29001/tcp"
@@ -260,10 +260,10 @@ services:
 
   perfectworld-website-register:
     container_name: perfectworld-website-register
-#    ports:
-#    - "{PUBLIC_IP}:80:80"
-#    expose:
-#      - "80/tcp"
+    ports:
+    - "0.0.0.0:80:80"
+    expose:
+      - "80/tcp"
     environment:
       MYSQL_ADDRESS: 172.30.1.20
       MYSQL_DB: pw
